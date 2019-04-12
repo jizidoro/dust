@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Baseline";
+    ViewBag.SubTitle = "Gerar Baseline";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Shared/all.js")
+    @Scripts.Render("~/Scripts/Baseline/all.js")
+    @Scripts.Render("~/Scripts/Tfs/all.js")
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Gerar Baseline de Planejamento</h3>
+            </div>
+            <form role="form">
+                <div class="box-body">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Projeto</label>
+                            <select id="ddProjeto" class="form-control" data-placeholder="Selecione o projeto">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Analista de Configuração</label>
+                            <input type="text" class="form-control" id="analistaConfiguracao">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Data da Baseline</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="date" class="form-control pull-right" id="dataGeracao">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Identificação</label>
+                            <input type="text" class="form-control" placeholder="Complemento Baseline" id="identificacao" aria-describedby="sizing-addon2">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Caminho do Projeto</label>
+                            <select id="ddFolderPath" class="form-control" data-placeholder="Selecione o caminho do projeto">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Caminho da Branch</label>
+                            <select id="ddBranch" class="form-control" data-placeholder="Selecione o caminho do branch">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button id="btGerar" type="submit" class="btn btn-primary">Gerar Checklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ajaxStart(function () { Pace.restart(); });
+    $(document).ready(function () {
+        document.getElementById('dataGeracao').valueAsDate = new Date();
+        $("select#ddProjeto").chosen();
+        $("select#ddIteration").chosen();
+        $("select#ddFolderPath").chosen({ search_contains: true });
+        $("select#ddBranch").chosen({ search_contains: true });
+        GetProjetos(function (projetoList) {
+            $.each(projetoList, function (i, val) {
+                $("select#ddProjeto").append($('<option></option>').val(val.Id).html(val.Nome));
+            });
+            $("select#ddProjeto").trigger("chosen:updated");
+        });
+    })
+</script>

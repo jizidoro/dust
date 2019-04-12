@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ax226="http://dto.integracao.webservices.channel2.jexperts.com.br/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ax224="http://generics.channel2.jexperts.com.br/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://integracao.webservices.channel2.jexperts.com.br" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://integracao.webservices.channel2.jexperts.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsdl:types>
+    <xs:schema xmlns:ax225="http://generics.channel2.jexperts.com.br/xsd" xmlns:ax227="http://dto.integracao.webservices.channel2.jexperts.com.br/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://integracao.webservices.channel2.jexperts.com.br">
+      <xs:import namespace="http://generics.channel2.jexperts.com.br/xsd" />
+      <xs:import namespace="http://dto.integracao.webservices.channel2.jexperts.com.br/xsd" />
+      <xs:element name="atualizarPassoSolicitacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="idSolicitacao" type="xs:int" />
+            <xs:element minOccurs="0" name="nomeNovoPasso" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="atualizarPassoSolicitacaoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax225:ResultadoOperacao" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="atualizarPassoSolicitacaoPorIdPasso">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="idSolicitacao" type="xs:int" />
+            <xs:element minOccurs="0" name="idNovoPasso" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="atualizarPassoSolicitacaoPorIdPassoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax225:ResultadoOperacao" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarDemanda">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="codigoDemanda" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultarDemandaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax227:DadosDemanda" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarProjetosAtivos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarProjetosAtivosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="ax227:DadosProjeto" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="idProjeto" type="xs:int" />
+            <xs:element minOccurs="0" name="nomeTipoSolicitacao" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="ax227:DadosSolicitacao" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoesPorOperacao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="idOperacao" type="xs:int" />
+            <xs:element minOccurs="0" name="idTipoSolicitacao" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoesPorOperacaoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="ax227:DadosSolicitacao" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoesOperacaoTicket">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dataInicio" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="dataFim" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarSolicitacoesOperacaoTicketResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="ax227:SolicitacaoOperacaoDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://generics.channel2.jexperts.com.br/xsd">
+      <xs:complexType name="ResultadoOperacao">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idEmpresa" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="log" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="mensagem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="object" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="realizada" type="xs:boolean" />
+          <xs:element minOccurs="0" name="tipoMensagem" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dto.integracao.webservices.channel2.jexperts.com.br/xsd">
+      <xs:complexType name="DadosDemanda">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="autorDemanda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="codigoDemanda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="codigoStatusDemanda" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="dataAberturaDemanda" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataUltimaAtualizacaoDemanda" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="descricaoDemanda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nomeDemanda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nomeStatusDemanda" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="responsavelDemanda" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DadosProjeto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idProjeto" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="nomeGerente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nomeProjeto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usernameGerente" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DadosSolicitacao">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idOperacao" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idTipoTicket" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nomeOperacao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="passoWorkflow" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="responsavel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoTicket" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SolicitacaoOperacaoDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campoParticipacaoEquipeTestes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="conteudoContaControle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="conteudoCronogramaDeTestes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="conteudoPlanoDeTestes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataAbertura" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataFim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataTestePlanejadoFim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataTestePlanejadoInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataTesteRealizadoFim" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dataTesteRealizadoInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="operacao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="passoAtual" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="titulo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="atualizarPassoSolicitacaoRequest">
+    <wsdl:part name="parameters" element="ns:atualizarPassoSolicitacao" />
+  </wsdl:message>
+  <wsdl:message name="atualizarPassoSolicitacaoResponse">
+    <wsdl:part name="parameters" element="ns:atualizarPassoSolicitacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarDemandaRequest">
+    <wsdl:part name="parameters" element="ns:consultarDemanda" />
+  </wsdl:message>
+  <wsdl:message name="consultarDemandaResponse">
+    <wsdl:part name="parameters" element="ns:consultarDemandaResponse" />
+  </wsdl:message>
+  <wsdl:message name="atualizarPassoSolicitacaoPorIdPassoRequest">
+    <wsdl:part name="parameters" element="ns:atualizarPassoSolicitacaoPorIdPasso" />
+  </wsdl:message>
+  <wsdl:message name="atualizarPassoSolicitacaoPorIdPassoResponse">
+    <wsdl:part name="parameters" element="ns:atualizarPassoSolicitacaoPorIdPassoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarProjetosAtivosRequest">
+    <wsdl:part name="parameters" element="ns:listarProjetosAtivos" />
+  </wsdl:message>
+  <wsdl:message name="listarProjetosAtivosResponse">
+    <wsdl:part name="parameters" element="ns:listarProjetosAtivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesPorOperacaoRequest">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoesPorOperacao" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesPorOperacaoResponse">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoesPorOperacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesOperacaoTicketRequest">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoesOperacaoTicket" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesOperacaoTicketResponse">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoesOperacaoTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesRequest">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoes" />
+  </wsdl:message>
+  <wsdl:message name="listarSolicitacoesResponse">
+    <wsdl:part name="parameters" element="ns:listarSolicitacoesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ChannelOperacaoWebServicePortType">
+    <wsdl:operation name="atualizarPassoSolicitacao">
+      <wsdl:input wsaw:Action="urn:atualizarPassoSolicitacao" message="ns:atualizarPassoSolicitacaoRequest" />
+      <wsdl:output wsaw:Action="urn:atualizarPassoSolicitacaoResponse" message="ns:atualizarPassoSolicitacaoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarDemanda">
+      <wsdl:input wsaw:Action="urn:consultarDemanda" message="ns:consultarDemandaRequest" />
+      <wsdl:output wsaw:Action="urn:consultarDemandaResponse" message="ns:consultarDemandaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="atualizarPassoSolicitacaoPorIdPasso">
+      <wsdl:input wsaw:Action="urn:atualizarPassoSolicitacaoPorIdPasso" message="ns:atualizarPassoSolicitacaoPorIdPassoRequest" />
+      <wsdl:output wsaw:Action="urn:atualizarPassoSolicitacaoPorIdPassoResponse" message="ns:atualizarPassoSolicitacaoPorIdPassoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarProjetosAtivos">
+      <wsdl:input wsaw:Action="urn:listarProjetosAtivos" message="ns:listarProjetosAtivosRequest" />
+      <wsdl:output wsaw:Action="urn:listarProjetosAtivosResponse" message="ns:listarProjetosAtivosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesPorOperacao">
+      <wsdl:input wsaw:Action="urn:listarSolicitacoesPorOperacao" message="ns:listarSolicitacoesPorOperacaoRequest" />
+      <wsdl:output wsaw:Action="urn:listarSolicitacoesPorOperacaoResponse" message="ns:listarSolicitacoesPorOperacaoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesOperacaoTicket">
+      <wsdl:input wsaw:Action="urn:listarSolicitacoesOperacaoTicket" message="ns:listarSolicitacoesOperacaoTicketRequest" />
+      <wsdl:output wsaw:Action="urn:listarSolicitacoesOperacaoTicketResponse" message="ns:listarSolicitacoesOperacaoTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoes">
+      <wsdl:input wsaw:Action="urn:listarSolicitacoes" message="ns:listarSolicitacoesRequest" />
+      <wsdl:output wsaw:Action="urn:listarSolicitacoesResponse" message="ns:listarSolicitacoesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChannelOperacaoWebServiceSoap11Binding" type="ns:ChannelOperacaoWebServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="atualizarPassoSolicitacao">
+      <soap:operation soapAction="urn:atualizarPassoSolicitacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarDemanda">
+      <soap:operation soapAction="urn:consultarDemanda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atualizarPassoSolicitacaoPorIdPasso">
+      <soap:operation soapAction="urn:atualizarPassoSolicitacaoPorIdPasso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarProjetosAtivos">
+      <soap:operation soapAction="urn:listarProjetosAtivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesPorOperacao">
+      <soap:operation soapAction="urn:listarSolicitacoesPorOperacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesOperacaoTicket">
+      <soap:operation soapAction="urn:listarSolicitacoesOperacaoTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoes">
+      <soap:operation soapAction="urn:listarSolicitacoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChannelOperacaoWebServiceHttpBinding" type="ns:ChannelOperacaoWebServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="atualizarPassoSolicitacao">
+      <http:operation location="ChannelOperacaoWebService/atualizarPassoSolicitacao" />
+      <wsdl:input>
+        <mime:content part="atualizarPassoSolicitacao" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="atualizarPassoSolicitacao" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarDemanda">
+      <http:operation location="ChannelOperacaoWebService/consultarDemanda" />
+      <wsdl:input>
+        <mime:content part="consultarDemanda" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="consultarDemanda" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atualizarPassoSolicitacaoPorIdPasso">
+      <http:operation location="ChannelOperacaoWebService/atualizarPassoSolicitacaoPorIdPasso" />
+      <wsdl:input>
+        <mime:content part="atualizarPassoSolicitacaoPorIdPasso" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="atualizarPassoSolicitacaoPorIdPasso" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarProjetosAtivos">
+      <http:operation location="ChannelOperacaoWebService/listarProjetosAtivos" />
+      <wsdl:input>
+        <mime:content part="listarProjetosAtivos" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="listarProjetosAtivos" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesPorOperacao">
+      <http:operation location="ChannelOperacaoWebService/listarSolicitacoesPorOperacao" />
+      <wsdl:input>
+        <mime:content part="listarSolicitacoesPorOperacao" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="listarSolicitacoesPorOperacao" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoesOperacaoTicket">
+      <http:operation location="ChannelOperacaoWebService/listarSolicitacoesOperacaoTicket" />
+      <wsdl:input>
+        <mime:content part="listarSolicitacoesOperacaoTicket" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="listarSolicitacoesOperacaoTicket" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarSolicitacoes">
+      <http:operation location="ChannelOperacaoWebService/listarSolicitacoes" />
+      <wsdl:input>
+        <mime:content part="listarSolicitacoes" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="listarSolicitacoes" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChannelOperacaoWebService">
+    <wsdl:port name="ChannelOperacaoWebServiceHttpSoap11Endpoint" binding="ns:ChannelOperacaoWebServiceSoap11Binding">
+      <soap:address location="http://172.17.0.4:8080/channel/services/ChannelOperacaoWebService.ChannelOperacaoWebServiceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ChannelOperacaoWebServiceHttpEndpoint" binding="ns:ChannelOperacaoWebServiceHttpBinding">
+      <http:address location="http://172.17.0.4:8080/channel/services/ChannelOperacaoWebService.ChannelOperacaoWebServiceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

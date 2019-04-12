@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Consultas";
+    ViewBag.SubTitle = "Proximas Entregas";
+}
+
+@section Menu {
+    @*@Scripts.Render("~/Scripts/Calendar/menu")*@
+@*@Scripts.Render("~/Scripts/ProximasEntregas")*@
+}
+
+@Styles.Render("~/AdminLTE/plugins/fullcalendar/css/all.css")
+@*<link rel="stylesheet" href="@Styles.Url("~/AdminLTE/plugins/fullcalendar/css/print")" media="print">*@
+@Styles.Render("~/AdminLTE/dist/css/all.css")
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-body no-padding">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            buttonText: {
+                today: 'today',
+                month: 'month',
+                week: 'week',
+                day: 'day'
+            },
+            events: "@Url.Action("GetProximasEntregas/")"
+        });
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/jquery-ui/js/all.js")
+    @Scripts.Render("~/AdminLTE/plugins/momentjs/js/all.js")
+    @Scripts.Render("~/AdminLTE/plugins/fullcalendar/js/all.js")
+    @*@Scripts.Render("~/Scripts/Calendar")*@
+}

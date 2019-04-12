@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Log Integração Channel TFS";
+    ViewBag.SubTitle = "Consulta";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/LogIntegracao/all.js")
+    @Scripts.Render("~/Scripts/Shared/all.js")
+}
+
+@*@Styles.Render("~/AdminLTE/plugins/datatables/css")*@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Projeto</label>
+                            <select id="ddProjetos" class="form-control">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="ddStatus" class="form-control">
+                                <option value="-1" selected="selected"></option>
+                                <option value="0">Info</option>
+                                <option value="1">Erro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Início</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="date" class="form-control pull-right" id="dataInicio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Fim</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="date" class="form-control pull-right" id="dataFim">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="btnPesquisar" type="submit" class="btn btn-primary">Pesquisar</button>
+                    <a href="@Url.Action("Index", "LogIntegracao")" class="btn btn-default">Limpar</a>
+                    <button id="btnExcel" type="button" class="btn btn-success pull-right"><i class="fa fa-file-excel-o"></i> Exportar Excel</button>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-body">
+                <table id="tbHistorico" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Projeto
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Data
+                            </th>
+                            <th>
+                                Registro
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js/all.js")
+    @*@Scripts.Render("~/Scripts/Tables/Data")*@
+
+}
+<script>
+    $(document).ready(function () {
+        $("select#ddProjetos").chosen();
+        $("select#ddStatus").chosen();
+
+        GetProjetos(function (usuarioList) {
+            $.each(usuarioList, function (i, val) {
+                $("select#ddProjetos").append($('<option></option>').val(val.Nome).html(val.Nome));
+            });
+            $("select#ddProjetos").trigger("chosen:updated");
+        });
+
+
+    })
+</script>
+<script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>

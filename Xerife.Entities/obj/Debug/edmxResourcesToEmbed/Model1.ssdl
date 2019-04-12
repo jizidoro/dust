@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ProjetoSet" EntityType="Model1.Store.ProjetoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioVpnSet" EntityType="Model1.Store.UsuarioVpnSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VpnHistoricoSet" EntityType="Model1.Store.VpnHistoricoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TarefaChannelSet" EntityType="Model1.Store.TarefaChannelSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioSet" EntityType="Model1.Store.UsuarioSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilSet" EntityType="Model1.Store.PerfilSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogIntegracaoSet" EntityType="Model1.Store.LogIntegracaoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParametroSistemaSet" EntityType="Model1.Store.ParametroSistemaSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProjetoTarefaChannel" Association="Model1.Store.ProjetoTarefaChannel">
+      <End Role="Projeto" EntitySet="ProjetoSet" />
+      <End Role="TarefaChannel" EntitySet="TarefaChannelSet" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioPerfil" Association="Model1.Store.UsuarioPerfil">
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+      <End Role="Perfil" EntitySet="PerfilSet" />
+    </AssociationSet>
+    <AssociationSet Name="PerfilParametroSistema" Association="Model1.Store.PerfilParametroSistema">
+      <End Role="Perfil" EntitySet="PerfilSet" />
+      <End Role="ParametroSistema" EntitySet="ParametroSistemaSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ProjetoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TfsUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TfsCollection" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TfsProject" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TfsTeam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdChannel" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="TfsAreaPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UsuarioGerente" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioVpnSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Inicio" Type="datetime" Nullable="false" />
+    <Property Name="Fim" Type="datetime" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="VpnHistoricoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inicio" Type="datetime" Nullable="true" />
+    <Property Name="Fim" Type="datetime" Nullable="true" />
+    <Property Name="DataAcao" Type="datetime" Nullable="false" />
+    <Property Name="Acao" Type="int" Nullable="false" />
+    <Property Name="Responsavel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Justificativa" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarefaChannelSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTarefaChannel" Type="int" Nullable="false" />
+    <Property Name="IdIterationTfs" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Projeto_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Perfil_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogIntegracaoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Projeto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Registro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParametroSistemaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sigla" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Perfil_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProjetoTarefaChannel">
+    <End Role="Projeto" Type="Model1.Store.ProjetoSet" Multiplicity="1" />
+    <End Role="TarefaChannel" Type="Model1.Store.TarefaChannelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TarefaChannel">
+        <PropertyRef Name="Projeto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioPerfil">
+    <End Role="Usuario" Type="Model1.Store.UsuarioSet" Multiplicity="*" />
+    <End Role="Perfil" Type="Model1.Store.PerfilSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Perfil_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PerfilParametroSistema">
+    <End Role="Perfil" Type="Model1.Store.PerfilSet" Multiplicity="1" />
+    <End Role="ParametroSistema" Type="Model1.Store.ParametroSistemaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParametroSistema">
+        <PropertyRef Name="Perfil_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

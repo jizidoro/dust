@@ -1,0 +1,66 @@
+﻿@model Xerife.Entities.Projeto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Projeto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TfsUrl)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TfsUrl)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TfsCollection)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TfsCollection)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TfsProject)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TfsProject)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TfsTeam)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TfsTeam)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

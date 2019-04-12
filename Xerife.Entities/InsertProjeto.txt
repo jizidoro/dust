@@ -1,0 +1,17 @@
+﻿SET IDENTITY_INSERT [dbo].[ProjetoSet] ON
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (86, N'PETRO-BCES SMES REQUISITOS', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaBCES', N'SMES - REQUISITO', 422, 1, N'SMS - REQUISITO')
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (87, N'PETRO-SNEP-GIEP.AS08', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaSNEP', N'GIEP - AS08', 395, 1, N'GIEP - AS08')
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (88, N'PETRO-BCES SEGPRO - Incidentes', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaBCES', N'SEGPRO - Incidentes', 411, 1, N'SEGPRO - Incidentes')
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (89, N'PETRO-BCES SEGPRO - Aeródromo', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaBCES', N'SEGPRO - Aeródromo', 431, 1, N'SEGPRO - Aeródromo')
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (90, N'PETRO-BCES BOTAO - Backlog', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaBCES', N'Botão - AS50', 407, 1, N'Botão - AS50')
+INSERT INTO [dbo].[ProjetoSet] ([Id], [Nome], [TfsUrl], [TfsCollection], [TfsProject], [TfsTeam], [IdChannel], [Status], [TfsAreaPath]) VALUES (91, N'PETRO-BCES BOTAO - Plano K - R2', N'http://bacutia:8080/tfs/', N'PETROBRAS', N'FabricaBCES', N'BOTAO - AS49', 389, 1, N'BOTAO - AS49')
+SET IDENTITY_INSERT [dbo].[ProjetoSet] OFF
+
+SET IDENTITY_INSERT [dbo].[PerfilSet] ON
+INSERT INTO [dbo].[PerfilSet] ([Id], [Nome]) VALUES (1, N'Administrador')
+INSERT INTO [dbo].[PerfilSet] ([Id], [Nome]) VALUES (2, N'Infra')
+SET IDENTITY_INSERT [dbo].[PerfilSet] OFF
+
+SET IDENTITY_INSERT [dbo].[UsuarioSet] ON
+INSERT INTO [dbo].[UsuarioSet] ([Id], [Login], [Perfil_Id]) VALUES (2, N'eduardo.cruz', 1)
+SET IDENTITY_INSERT [dbo].[UsuarioSet] OFF

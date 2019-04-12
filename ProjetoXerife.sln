@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xerife.Web", "Xerife.Web\Xerife.Web.csproj", "{57513229-3ACF-4819-B053-144AB434E89E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xerife.Entities", "Xerife.Entities\Xerife.Entities.csproj", "{2872A145-24A2-4E7A-B9BA-D79EB091507C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xerife.Rotinas", "Xerife.Rotinas\Xerife.Rotinas.csproj", "{4690D115-CFE5-4D9D-9C55-97C1A5269973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xerife.Persistence", "Xerife.Persistence\Xerife.Persistence.csproj", "{299BD353-694E-4860-8CF2-2FCF49A328F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xerife.Business", "Xerife.Business\Xerife.Business.csproj", "{535EC7C5-0E5A-4BC9-A382-1FAC5E07B532}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57513229-3ACF-4819-B053-144AB434E89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57513229-3ACF-4819-B053-144AB434E89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57513229-3ACF-4819-B053-144AB434E89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57513229-3ACF-4819-B053-144AB434E89E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2872A145-24A2-4E7A-B9BA-D79EB091507C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2872A145-24A2-4E7A-B9BA-D79EB091507C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2872A145-24A2-4E7A-B9BA-D79EB091507C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2872A145-24A2-4E7A-B9BA-D79EB091507C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4690D115-CFE5-4D9D-9C55-97C1A5269973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4690D115-CFE5-4D9D-9C55-97C1A5269973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4690D115-CFE5-4D9D-9C55-97C1A5269973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4690D115-CFE5-4D9D-9C55-97C1A5269973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{299BD353-694E-4860-8CF2-2FCF49A328F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{299BD353-694E-4860-8CF2-2FCF49A328F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{299BD353-694E-4860-8CF2-2FCF49A328F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{299BD353-694E-4860-8CF2-2FCF49A328F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535EC7C5-0E5A-4BC9-A382-1FAC5E07B532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535EC7C5-0E5A-4BC9-A382-1FAC5E07B532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535EC7C5-0E5A-4BC9-A382-1FAC5E07B532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535EC7C5-0E5A-4BC9-A382-1FAC5E07B532}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://solemar.vixteam.com.br:8080/tfs/vixteam
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Xerife.Business\\Xerife.Business.csproj
+		SccProjectName1 = Xerife.Business
+		SccLocalPath1 = Xerife.Business
+		SccProjectUniqueName2 = Xerife.Entities\\Xerife.Entities.csproj
+		SccProjectName2 = Xerife.Entities
+		SccLocalPath2 = Xerife.Entities
+		SccProjectUniqueName3 = Xerife.Persistence\\Xerife.Persistence.csproj
+		SccProjectName3 = Xerife.Persistence
+		SccLocalPath3 = Xerife.Persistence
+		SccProjectUniqueName4 = Xerife.Rotinas\\Xerife.Rotinas.csproj
+		SccProjectName4 = Xerife.Rotinas
+		SccLocalPath4 = Xerife.Rotinas
+		SccProjectUniqueName5 = Xerife.Web\\Xerife.Web.csproj
+		SccProjectName5 = Xerife.Web
+		SccLocalPath5 = Xerife.Web
+	EndGlobalSection
+EndGlobal

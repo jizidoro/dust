@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Parâmetros";
+    ViewBag.SubTitle = "Consulta";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/ParametroSistema/all.js")
+    @Scripts.Render("~/Scripts/Shared/all.js")
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+            </div>
+            <div class="box-body">
+                <table id="tbParametro" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Descrição
+                            </th>
+                            <th>
+                                Sigla
+                            </th>
+                            <th>
+                                Valor
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Atualizar Parametro</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="col-md-12" style="display:none;">
+                        <div class="form-group">
+                            <label for="idParametro">Id</label>
+                            <input type="text" class="form-control" id="idParametro" placeholder="idParametro" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" placeholder="nome" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea class="form-control" id="descricao"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="perfil">Perfil</label>
+                            <input type="text" class="form-control" id="perfil" placeholder="perfil" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="sigla">Sigla</label>
+                            <input type="text" class="form-control" id="sigla" placeholder="sigla" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="valor">Valor</label>
+                            <input type="text" class="form-control" id="valor" placeholder="valor" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAtualizar" style="display:none;">Atualizar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js/all.js")
+}
+<script>
+    $(document).ajaxStart(function () { Pace.restart(); });
+    $(document).ready(function () {
+        GetParametroSistema(function (parametroList) {
+            $.each(parametroList, function (i, val) {
+                var newRow = "<tr>";
+                newRow = newRow + "<tr>";
+                newRow = newRow + "<td>" + val.Nome + "</td>";
+                newRow = newRow + "<td>" + val.Descricao + "</td>";
+                newRow = newRow + "<td>" + val.Sigla + "</td>";
+                newRow = newRow + "<td>" + val.Valor + "</td>";
+                newRow = newRow + "<td>";
+                newRow = newRow + "<a href='#' onclick='return EditParametro(" + val.Id + ")'><i class='fa fa-fw fa-edit'></i></a>";
+                //newRow = newRow + "<a title='Editar' onclick='return EditParametro(" + val.Id + ")'><i class='fa fa-fw fa-edit'></i> </a>";
+                newRow = newRow + "</td>";
+                newRow = newRow + "</tr>";
+                $("table#tbParametro>tbody").append(newRow);
+            });
+        });
+    })
+
+</script>

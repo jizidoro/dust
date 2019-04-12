@@ -1,0 +1,17 @@
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Persistence.dll.config
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Persistence.dll
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Persistence.pdb
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\EntityFramework.dll
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Entities.dll
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Newtonsoft.Json.dll
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Entities.pdb
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Xerife.Entities.dll.config
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\EntityFramework.xml
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProjetoXerife\Xerife.Persistence\bin\Debug\Newtonsoft.Json.xml
+C:\ProjetoXerife\Xerife.Persistence\obj\Debug\Xerife.Persistence.csprojAssemblyReference.cache
+C:\ProjetoXerife\Xerife.Persistence\obj\Debug\Xerife.Persistence.csproj.CoreCompileInputs.cache
+C:\ProjetoXerife\Xerife.Persistence\obj\Debug\Xerife.Persistence.csproj.CopyComplete
+C:\ProjetoXerife\Xerife.Persistence\obj\Debug\Xerife.Persistence.dll
+C:\ProjetoXerife\Xerife.Persistence\obj\Debug\Xerife.Persistence.pdb

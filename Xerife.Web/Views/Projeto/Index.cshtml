@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Projetos";
+    ViewBag.SubTitle = "Consulta";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Projeto/all.js")
+    @Scripts.Render("~/Scripts/Shared/all.js")
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <a href="@Url.Action("Create", "Projeto")" class="btn btn-primary">Cadastrar</a>
+                <a href="@Url.Action("ExecutarIntegracaoChannelTfs", "Projeto", new { idProjeto = 0 })" class="btn btn-danger pull-right">Executar Integração Channel x TFS para todos os projetos</a>
+            </div>
+            <div class="box-body">
+                <table id="tbProjetos" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Projeto
+                            </th>
+                            <th>
+                                Unidade
+                            </th>
+                            <th>
+                                Contrato
+                            </th>
+                            <th>
+                                Equipe
+                            </th>
+                            <th>
+                                Situação
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js/all.js")
+}
+<script>
+    $(document).ready(function () {
+        GetProjetos(function (projetoList) {
+            $.each(projetoList, function (i, val) {
+                var newRow = "<tr>";
+                newRow = newRow + "<tr>";
+                newRow = newRow + "<td>" + val.Nome + "</td>";
+                newRow = newRow + "<td>" + val.TfsCollection + "</td>";
+                newRow = newRow + "<td>" + val.TfsProject + "</td>";
+                newRow = newRow + "<td>" + val.TfsTeam + "</td>";
+                if (val.Status === true) {
+                    newRow = newRow + "<td>Ativo</td>";
+                } else {
+                    newRow = newRow + "<td>Inativo</td>";
+                }
+                newRow = newRow + "<td>";
+                newRow = newRow + "<a title='Executar Integração Channel x TFS para o projeto' href='Projeto/ExecutarIntegracaoChannelTfs/idProjeto=" + val.Id + "'> <i class='fa fa-fw fa-arrow-up'></i> </a>";
+                newRow = newRow + "<a title='Editar' href='Projeto/Edit/" + val.Id + "'> <i class='fa fa-fw fa-edit'></i> </a>";
+                newRow = newRow + "<a title='Ativar/Inativar' href='Projeto/AlterarStatus/" + val.Id + "'> <i class='fa fa-fw fa-refresh'></i> </a>";
+                newRow = newRow + "<a title='Excluir' href='#' title='Excluir' onclick='exclusao(" + val.Id + ");'> <i class='fa fa-fw fa-remove'></i> </a>";
+                newRow = newRow + "</td>";
+                newRow = newRow + "</tr>";
+                $("table#tbProjetos>tbody").append(newRow);
+            });
+        });
+    })
+
+    function exclusao(id) {
+        var result = confirm('Confirma a exclusão?');
+
+        if (result == true) {
+            $.ajax({
+                type: "POST",
+                url: window.urlBase + "Projeto/Delete/",
+                data: { id: id },
+                success: function (data) {
+                    if (data.status) {
+                        alert('Projeto excluído com sucesso!');
+                        window.location.href = data.redirectUrl;
+                    } else {
+                        alert("Erro ao executar operação");
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert(textStatus + " " + errorThrown + " " + xhr.responseText);
+                }
+            });            
+        }
+    }
+</script>

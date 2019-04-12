@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Histórico VPN";
+    ViewBag.SubTitle = "Consulta";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/HistoricoVpn/all.js")
+    @Scripts.Render("~/Scripts/Vpn/all.js")
+    @Scripts.Render("~/Scripts/Shared/all.js")
+}
+
+@*@Styles.Render("~/AdminLTE/plugins/datatables/css")*@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Colaborador</label>
+                            <select id="ddUsuario" class="form-control">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Responsável</label>
+                            <select id="ddResponsavel" class="form-control">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Início</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="date" class="form-control pull-right" id="dataInicio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Fim</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="date" class="form-control pull-right" id="dataFim">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="btnPesquisar" type="submit" class="btn btn-primary">Pesquisar</button>
+                    <a href="@Url.Action("Index", "VpnHistorico")" class="btn btn-default">Limpar</a>
+                    <button id="btnExcel" type="button" class="btn btn-success pull-right"><i class="fa fa-file-excel-o"></i> Exportar Excel</button>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-body">
+                <table id="tbHistorico" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Colaborador
+                            </th>
+                            <th>
+                                Data da Ação
+                            </th>
+                            <th>
+                                Responsável
+                            </th>
+                            <th>
+                                Ação
+                            </th>
+                            <th>
+                                Início
+                            </th>
+                            <th>
+                                Fim
+                            </th>
+                            <th>
+                                Justificativa
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js/all.js")
+    @*@Scripts.Render("~/Scripts/Tables/Data")*@
+
+}
+<script>
+    $(document).ajaxStart(function () { Pace.restart(); });
+    $(document).ready(function () {
+        $("select#ddUsuario").chosen();
+        GetListaUsuariosAD(function (usuarioList) {
+            $.each(usuarioList, function (i, val) {
+                $("select#ddUsuario").append($('<option></option>').val(val.Login).html(val.Nome));
+            });
+            $("select#ddUsuario").trigger("chosen:updated");
+        });
+
+        $("select#ddResponsavel").chosen();
+        GetUsuarios(function (responsavelList) {
+            $.each(responsavelList, function (i, val) {
+                $("select#ddResponsavel").append($('<option></option>').val(val.Login).html(val.Login));
+            });
+            $("select#ddResponsavel").trigger("chosen:updated");
+        });
+    })
+</script>
+<script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
